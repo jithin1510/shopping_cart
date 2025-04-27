@@ -1,0 +1,70 @@
+# Shopping Cart Application Update
+
+## Changes Made
+
+### 1. Migrated from config.js to .env for Environment Variables
+
+The application has been updated to use environment variables directly from a `.env` file instead of the previous `config.js` module. This change:
+
+- Simplifies configuration management
+- Follows industry best practices for environment configuration
+- Makes deployment across different environments more straightforward
+
+### 2. Fixed Email Authentication Issue
+
+The email authentication error (`"Invalid login: 535-5.7.8 Username and Password not accepted"`) has been addressed by:
+
+- Updating the email configuration to use proper authentication
+- Adding detailed documentation on how to set up Gmail with App Passwords
+- Improving error handling in the email sending functionality
+
+### 3. Updated Files
+
+The following files were modified:
+
+- `utils/sendEmail.js` - Updated to use environment variables directly
+- `models/User.js` - Updated JWT and OTP methods to use environment variables
+- `config/db.js` - Updated to use environment variables for database connection
+- `server.js` - Removed config module dependency
+- `middleware/auth.js` - Updated JWT verification to use environment variables
+- `tests/auth.test.js` - Updated to work with environment variables
+- `tests/db.test.js` - Updated to work with environment variables
+- `jest.config.js` - Added setup file for testing
+
+### 4. New Files Created
+
+- `.env` - Main environment variables file
+- `.env.test` - Environment variables for testing
+- `README.md.env` - Documentation for environment variables
+- `tests/setup.js` - Setup file for loading test environment variables
+
+## How to Use
+
+1. Copy the `.env` file to your project root
+2. Update the values in the `.env` file with your actual configuration
+3. For Gmail users, follow the instructions in `README.md.env` to set up an App Password
+4. Run the application with `npm start`
+
+## Testing
+
+Tests have been updated to work with the new environment variable approach:
+
+1. The `.env.test` file contains test-specific configuration
+2. Tests automatically load this file via the `tests/setup.js` script
+3. Run tests with `npm test`
+
+## Email Authentication with Gmail
+
+If you're using Gmail as your email service and encountering the error:
+```
+"status": "error",
+"message": "Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-22db4d77120sm63853395ad.14 - gsmtp"
+```
+
+This is typically because:
+
+1. You're using your regular Gmail password instead of an App Password
+2. You need to enable 2-Factor Authentication and generate an App Password
+3. The email address or password in your `.env` file is incorrect
+
+Follow the instructions in `README.md.env` to properly set up Gmail authentication.
