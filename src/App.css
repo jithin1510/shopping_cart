@@ -1,0 +1,95 @@
+/* Main Styles */
+main {
+  min-height: 80vh;
+}
+
+/* Product Card Styles */
+.product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .card-title {
+  flex-grow: 0;
+}
+
+.product-card .card-text {
+  flex-grow: 1;
+}
+
+/* Rating Styles */
+.rating span {
+  margin: 0.1rem;
+}
+
+/* Form Styles */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cart Styles */
+.cart-item {
+  margin-bottom: 1rem;
+}
+
+/* Checkout Steps */
+.checkout-steps {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.checkout-steps > div {
+  border-bottom: 0.3rem solid #a0a0a0;
+  color: #a0a0a0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.checkout-steps > div.active {
+  border-bottom: 0.3rem solid #28a745;
+  color: #28a745;
+}
+
+/* Dashboard */
+.dashboard-card {
+  transition: transform 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Loader */
+.loader {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Search Box */
+.search-box {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Product Image */
+.product-image {
+  max-height: 500px;
+  object-fit: contain;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .checkout-steps {
+    font-size: 0.8rem;
+  }
+}
