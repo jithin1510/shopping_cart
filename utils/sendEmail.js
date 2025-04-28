@@ -11,11 +11,10 @@ const sendEmail = async (options) => {
   try {
     // Create transporter using environment variables
     const transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST || 'smtp.ethereal.email',
-      port: parseInt(process.env.MAIL_PORT || '587'),
+      service:'gmail',
       auth: {
-        user: process.env.MAIL_USERNAME || 'test@example.com',
-        pass: process.env.MAIL_PASSWORD || 'password'
+        user: 'noreplyshoppingcartCAP1@gmail.com',
+        pass: 'Vantara@321'
       }
     });
 

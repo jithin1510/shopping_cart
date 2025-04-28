@@ -14,7 +14,7 @@ exports.getProducts = async (req, res, next) => {
     excludedFields.forEach(field => delete queryObj[field]);
 
     // Advanced filtering
-    let filterObj = { ...queryObj };
+    const filterObj = { ...queryObj };
     
     // Price range filtering
     if (req.query.minPrice || req.query.maxPrice) {

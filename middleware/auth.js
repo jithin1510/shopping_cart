@@ -92,7 +92,7 @@ exports.protect = async (req, res, next) => {
  * Middleware for service-to-service authentication
  * This middleware validates JWT tokens from other microservices
  */
-exports.serviceAuth = async (req, res, next) => {
+exports.serviceAuth =  (req, res, next) => {
   let token;
 
   // Check if authorization header exists and starts with Bearer

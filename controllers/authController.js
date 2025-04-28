@@ -300,12 +300,13 @@ exports.resendOTP = async (req, res, next) => {
     console.error('Resend OTP error:', error);
     next(error);
   }
+};
 /**
  * @desc    Refresh JWT token
  * @route   POST /api/auth/refresh-token
  * @access  Private
  */
-exports.refreshToken = async (req, res, next) => {
+exports.refreshToken = (req, res, next) => {
   try {
     // User is already authenticated via the protect middleware
     const user = req.user;
@@ -443,9 +444,9 @@ exports.authenticateWithToken = async (req, res, next) => {
 /**
  * @desc    Generate service token for service-to-service authentication
  * @route   POST /api/auth/service-token
- * @access  Private/Admin
+ * @access  Private/Admin 
  */
-exports.generateServiceToken = async (req, res, next) => {
+exports.generateServiceToken =  (req, res, next) => {
   try {
     const { serviceName, permissions, expiresIn } = req.body;
 
@@ -477,4 +478,3 @@ exports.generateServiceToken = async (req, res, next) => {
     next(error);
   }
 };
-
